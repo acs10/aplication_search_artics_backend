@@ -2,16 +2,16 @@ import requests
 from bs4 import BeautifulSoup
 
 class GoogleScholarScraper:
-    def __init__(self, query):
+    def __init__(self, query, interest="", language="lang_pt", sort_by_date="0", period_start="", period_end="", start_position=0, num_per_page=10, page_number=1):
         self.query = query
-        self.interest = ""
-        self.language = "lang_pt" # Idioma da pesquisa: lang_pt = português, lang_es = espanhol, lang_en = inglês
-        self.sort_by_date = "0" # Ordenar por data: 0 ou 1
-        self.period_start = "" # Ano inicial
-        self.period_end = "" # Ano final
-        self.start_position = 0
-        self.num_per_page = 10
-        self.page_number = 1
+        self.interest = interest
+        self.language = language # Idioma da pesquisa: lang_pt = português, lang_es = espanhol, lang_en = inglês
+        self.sort_by_date = sort_by_date # Ordenar por data: 0 ou 1
+        self.period_start = period_start # Ano inicial
+        self.period_end = period_end # Ano final
+        self.start_position = start_position
+        self.num_per_page = num_per_page
+        self.page_number = page_number
 
         self.headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/94.0.4606.81"
