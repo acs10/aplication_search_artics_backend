@@ -1,4 +1,4 @@
-from .models import Text
+from .models import UserProfile, SearchHistory
 from rest_framework import status
 from .serializers import UserProfileSerializer, SearchHistorySerializer
 from rest_framework.response import Response
@@ -8,9 +8,8 @@ from rest_framework.views import APIView
 
 class Register(APIView):
     def get(self, request):
-        query = Text.objects.order_by('id').reverse()[:1]
+        query = UserProfile.objects.all()
         serializer = UserProfileSerializer(query, many=True)
-        # instance = moduleProcess(query=serializer.data)
         return Response(serializer.data) 
 
     def post(self, request):
@@ -21,7 +20,7 @@ class Register(APIView):
 
 class Data(APIView):
     def get(self, request):
-        query = Text.objects.order_by('id').reverse()[:1]
+        query = SearchHistory.objects.all()
         serializer = SearchHistorySerializer(query, many=True)
         # instance = moduleProcess(query=serializer.data)
         return Response(serializer.data) 

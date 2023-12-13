@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 # from uuid import uuid4
 
 class UserProfile(models.Model):
-    # body = models.TextField(blank=True, null=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=200, blank=True, null=True)
     email = models.CharField(max_length=200, blank=True, null=True)
